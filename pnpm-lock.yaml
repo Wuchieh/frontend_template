@@ -24,7 +24,7 @@ importers:
         specifier: '9'
         version: 9.13.1(vue@3.4.27(typescript@5.4.5))
       vue-router:
-        specifier: '4'
+        specifier: 4.3.2
         version: 4.3.2(vue@3.4.27(typescript@5.4.5))
       vuetify:
         specifier: ^3.6.11

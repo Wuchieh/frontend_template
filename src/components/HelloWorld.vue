@@ -14,9 +14,10 @@
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
         <h1 class="text-h2 font-weight-bold">Vuetify</h1>
+        <div class="pt-2" @click="pkg.copyString(nowTime)">{{ nowTime }}</div>
       </div>
 
-      <div class="py-4" />
+      <div class="py-4"/>
 
       <v-row>
         <v-col cols="12">
@@ -29,7 +30,7 @@
             variant="outlined"
           >
             <template #image>
-              <v-img position="top right" />
+              <v-img position="top right"/>
             </template>
 
             <template #title>
@@ -38,7 +39,11 @@
 
             <template #subtitle>
               <div class="text-subtitle-1">
-                Change this page by updating <v-kbd>{{ `<HelloWorld />` }}</v-kbd> in <v-kbd>components/HelloWorld.vue</v-kbd>.
+                Change this page by updating
+                <v-kbd>&lt;HelloWorld /&gt;</v-kbd>
+                in
+                <v-kbd>components/HelloWorld.vue</v-kbd>
+                .
               </div>
             </template>
 
@@ -153,5 +158,25 @@
 </template>
 
 <script setup lang="ts">
-  //
+import * as pkg from "@/pkg";
+import {onMounted, onUnmounted, ref} from "vue";
+
+const getTimeStr = () => {
+  return pkg.parseDate(new Date(), "YYYY-MM-DD hh:mm:ss")
+}
+
+const nowTime = ref(getTimeStr())
+
+const interval = setInterval(() => {
+  nowTime.value = getTimeStr()
+}, 200)
+
+onMounted(()=>{
+  console.log(pkg.genRandNums(25,25))
+  console.log(pkg.emailCheck('test@google.com'))
+})
+
+onUnmounted(() => {
+  clearInterval(interval)
+})
 </script>
