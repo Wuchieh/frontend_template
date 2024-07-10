@@ -82,6 +82,11 @@ export function copyString(str: string) {
     });
 }
 
+/**
+ * 驗證電子郵件地址是否有效 (power by gemini)
+ * @param v - 要驗證的電子郵件地址字符串
+ * @returns 如果電子郵件地址有效返回 true，否則返回 false
+ */
 export const emailCheck = (v: string) => {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(v).toLowerCase());
